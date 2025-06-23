@@ -16,7 +16,7 @@ const Header = () => {
 
 	const navLinks = [
 		{ name: t('home'), href: '/' },
-		{ name: t('Projects'), href: '/Projects' },
+		{ name: t('Salat'), href: '/Home/salat' },
 		{ name: t('template'), href: '/template' },
 		{ name: t('contact'), href: '/Contact' },
 		{ name: t('pricing'), href: '/Pricing' },
@@ -26,10 +26,10 @@ const Header = () => {
 			<div className='mx-auto flex h-16  pt-1 items-center justify-between px-4 sm:px-6 lg:px-8'>
 				<Link href='/'>
 					<Image
-						src='/image/logo.png'
-						alt='شركة كودا - تطوير البرمجيات والذكاء الاصطناعي'
-						width={50}
-						height={50}
+						src='/image/horeselogo.png'
+						alt='Logo'
+						width={80}
+						height={80}
 						priority
 					/>
 				</Link>

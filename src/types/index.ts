@@ -1,4 +1,5 @@
 export interface SurahType {
+	recitation: any;
 	number: number;
 	englishName: string;
 	name: string;

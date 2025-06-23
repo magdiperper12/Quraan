@@ -8,20 +8,20 @@ import BackToTopButton from '../components/BackToTopButton';
 const roboto = Roboto({ subsets: ['latin'], weight: '700' });
 
 export const metadata: Metadata = {
-	title: ' كودا',
+	title: 'غزوه',
 	description:
-		'شركة كودا هي شركة رائدة في تقديم خدمات تصميم وبرمجة المواقع الإلكترونية وإنشاء تطبيقات الهاتف. نقدم حلولاً مبتكرة في الذكاء الاصطناعي وتطوير البرمجيات لدعم نجاح الأعمال في كفر الشيخ وطنطا.',
+		'غزوه هو موقع متخصص لعرض القرآن الكريم بواجهة سهلة وجذابة، يتيح لك قراءة واستماع وتفسير آيات الذكر الحكيم بكل سهولة.',
 	openGraph: {
-		title: 'أفضل شركة برمجيات في كفر الشيخ وطنطا - كودا',
+		title: 'موقع غزوه - لقراءة القرآن الكريم وتدبر آياته',
 		description:
-			'شركة كودا تقدم حلولاً مبتكرة في الذكاء الاصطناعي وتطوير البرمجيات، مع التركيز على تلبية احتياجات الشركات في العالم الرقمي بكفر الشيخ وطنطا.',
+			'موقع غزوه يقدم لك تجربة فريدة لقراءة القرآن الكريم والاستماع إلى التلاوات والتفاسير مع سهولة التصفح ودقة المحتوى.',
 		type: 'website',
 		locale: 'ar_EG',
-		url: 'https://cuda.aiotgroups.com/',
+		url: 'https://ghazwah.com/',
 		images: [
 			{
-				url: '/image/logo.png',
-				alt: 'شركة كودا - تطوير البرمجيات والذكاء الاصطناعي',
+				url: '/image/quraan.jpg',
+				alt: 'موقع غزوه - لقراءة وتدبر القرآن الكريم',
 				width: 800,
 				height: 600,
 			},
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'كودا - حلول البرمجيات والذكاء الاصطناعي في كفر الشيخ وطنطا',
+		title: 'غزوه - القرآن الكريم بين يديك',
 		description:
-			'شركة كودا تقدم حلولاً مبتكرة في الذكاء الاصطناعي وتطوير البرمجيات لمساعدة الشركات على النجاح في العالم الرقمي.',
-		images: ['/image/logo.png'],
+			'موقع غزوه لقراءة واستماع وتدبر القرآن الكريم بواجهة مريحة ومحتوى موثوق ومحدث باستمرار.',
+		images: ['/image/quraan.jpg'],
 	},
 	icons: {
-		icon: '/image/logo.png',
+		icon: '/image/quraan.jpg',
 	},
 };
 
@@ -53,35 +53,35 @@ export default function RootLayout({
 				/>
 				<meta
 					name='author'
-					content='كودا'
+					content='غزوه'
 				/>
 				<meta
 					name='application-name'
-					content='كودا'
+					content='غزوه'
 				/>
 				<link
 					rel='canonical'
-					href='https://cuda.aiotgroups.com/'
+					href='https://ghazwah.com/'
 				/>
 				<script
 					type='application/ld+json'
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify({
 							'@context': 'https://schema.org',
-							'@type': 'Organization',
-							name: 'كودا',
-							url: 'https://www.cuda.com',
-							logo: 'https://cuda.aiotgroups.com/image/logo.png',
+							'@type': 'WebSite',
+							name: 'غزوه',
+							url: 'https://ghazwah.com/',
+							logo: 'https://ghazwah.com/image/quraan.jpg',
 							sameAs: [
-								'https://www.facebook.com/Cuda',
-								'https://www.linkedin.com/company/Cuda',
-								'https://twitter.com/Cuda',
+								'https://www.facebook.com/ghazwah',
+								'https://www.linkedin.com/company/ghazwah',
+								'https://twitter.com/ghazwah',
 							],
 							description:
-								'كودا هي شركة رائدة في تقديم خدمات تصميم وبرمجة المواقع الإلكترونية وإنشاء تطبيقات الهاتف مع حلول في الذكاء الاصطناعي لدعم نجاح الأعمال.',
+								'غزوه هو موقع متخصص لعرض القرآن الكريم بواجهة مريحة وبسيطة، يتيح لك قراءة وتدبر آيات القرآن والاستماع إلى التلاوات من نخبة من القرّاء.',
 							address: {
 								'@type': 'PostalAddress',
-								addressLocality: 'كفر الشيخ',
+								addressLocality: 'الشرق الأوسط',
 								addressCountry: 'EG',
 							},
 							contactPoint: {
@@ -95,6 +95,7 @@ export default function RootLayout({
 					}}
 				/>
 			</head>
+
 			<body
 				className={`bg-gradient-to-r relative ${roboto.className} custom-scroll overflow-x-hidden bg-primary dark:bg-darkprimary`}>
 				<div className='sticky top-0  z-50'>
