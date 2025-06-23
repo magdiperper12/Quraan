@@ -1,16 +1,35 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from './Home/Hero';
 import ParticlesComponent from '../components/tsparticles';
+import { SurahType } from '../types';
+import SurahList from '../components/SurahList';
 
 function Collection() {
+	const [surahs, setSurahs] = useState<SurahType[]>([]); // تخزين السور
+	useEffect(() => {
+		async function fetchSurahs() {
+			try {
+				const res = await fetch('https://api.alquran.cloud/v1/surah');
+				const data = await res.json();
+				setSurahs(data.data); // تحديث الحالة
+			} catch (error) {
+				console.error('Error fetching surahs:', error);
+			}
+		}
+		fetchSurahs();
+	}, []); // تُنفّذ مرة واحدة عند أول تحميل
+
 	return (
-		<main className=' pt-32 pb-28  overflow-x-hidden'>
+		<main className='pt-32 pb-28 overflow-x-hidden'>
 			<ParticlesComponent id='Particles' />
 			<div className='my-16 mt-40'>
 				<Hero />
 			</div>
+			<h1 className='text-3xl font-bold text-center mb-6'>القرآن الكريم</h1>
+			{/* التحقق من أن السور جاهزة */}
+			<SurahList surahs={surahs} />
 		</main>
 	);
 }
