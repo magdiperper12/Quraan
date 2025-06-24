@@ -5,6 +5,7 @@ import Hero from './Home/Hero';
 import { SurahType } from '../types';
 import ParticlesComponent from '../components/basic/tsparticles';
 import SurahList from '../components/quraan/SurahList';
+import SahabaList from '../components/sahaba/SahabaList';
 
 function Collection() {
 	const [surahs, setSurahs] = useState<SurahType[]>([]); // تخزين السور
@@ -27,7 +28,7 @@ function Collection() {
 			<div className='my-16 mt-40'>
 				<Hero />
 			</div>
-
+			<SahabaList />
 			<h1 className='text-4xl font-bold text-center m-8 text-black dark:text-white '>
 				القرآن الكريم
 			</h1>
