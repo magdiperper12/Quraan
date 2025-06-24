@@ -64,3 +64,13 @@ export interface Sahabi {
 		statusWithProphet?: string;
 	};
 }
+
+export interface Video {
+	title: string;
+	description: string;
+	url: string;
+}
+
+export interface FilmsProps {
+	videos: Video[];
+}

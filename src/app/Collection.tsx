@@ -28,7 +28,7 @@ function Collection() {
 			<div className='my-16 mt-40'>
 				<Hero />
 			</div>
-			<SahabaList />
+
 			<h1 className='text-4xl font-bold text-center m-8 text-black dark:text-white '>
 				القرآن الكريم
 			</h1>

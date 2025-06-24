@@ -18,8 +18,8 @@ const Header = () => {
 		{ name: t('home'), href: '/' },
 		{ name: t('Salat'), href: '/Home/salat' },
 		{ name: t('sahaba'), href: '/Home/sahaba' },
-		{ name: t('contact'), href: '/Contact' },
-		{ name: t('pricing'), href: '/Pricing' },
+		{ name: t('films'), href: '/Home/films' },
+		{ name: t('nashid'), href: '/Home/nashid' },
 	];
 	return (
 		<header className='backdrop-blur-lg dark:bg-black/10 bg-white/10  fixed   w-full pb-2   text-darkprimary  dark:text-white  shadow-lg'>
