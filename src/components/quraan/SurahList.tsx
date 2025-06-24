@@ -1,8 +1,8 @@
 'use client';
 
 import { SurahType } from '@/src/types';
-import SurahItem from './SurahItem';
 import { motion, AnimatePresence } from 'framer-motion';
+import SurahItem from './SurahItem';
 
 interface Props {
 	surahs: SurahType[];

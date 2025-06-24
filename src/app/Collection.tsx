@@ -2,11 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import Hero from './Home/Hero';
-import ParticlesComponent from '../components/tsparticles';
 import { SurahType } from '../types';
-import SurahList from '../components/SurahList';
-import PrayerTimesAladhan from '../components/PrayerTimes';
-import PrayerTimesForMonth from '../components/PrayerTimesForMonth';
+import ParticlesComponent from '../components/basic/tsparticles';
+import SurahList from '../components/quraan/SurahList';
 
 function Collection() {
 	const [surahs, setSurahs] = useState<SurahType[]>([]); // تخزين السور

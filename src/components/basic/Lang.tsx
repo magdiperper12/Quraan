@@ -1,5 +1,5 @@
 import React from 'react';
-import LanguageSwitcher from '../components/LanguageSwitcher';
+import LanguageSwitcher from './LanguageSwitcher';
 
 function Lang() {
 	return (

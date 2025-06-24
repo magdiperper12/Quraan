@@ -1,5 +1,5 @@
-import PrayerTimesAladhan from '@/src/components/PrayerTimes';
-import PrayerTimesForMonth from '@/src/components/PrayerTimesForMonth';
+import PrayerTimesAladhan from '@/src/components/salatTime/PrayerTimes';
+import PrayerTimesForMonth from '@/src/components/salatTime/PrayerTimesForMonth';
 import React from 'react';
 
 const page = () => {

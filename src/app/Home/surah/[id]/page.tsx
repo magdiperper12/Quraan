@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import AyahList from '@/src/components/AyahList';
+import AyahList from '@/src/components/quraan/AyahList';
 import { SurahType } from '@/src/types';
 import { motion } from 'framer-motion';
 
