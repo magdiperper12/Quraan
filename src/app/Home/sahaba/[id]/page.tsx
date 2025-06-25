@@ -2,15 +2,16 @@ import { sahabaData } from '@/src/data/sahabaData';
 import Link from 'next/link';
 
 interface PageProps {
-	params: { id: string };
+	params: Promise<{ id: string }>;
 }
 
-export default function SahabiPage({ params }: PageProps) {
-	const sahabi = sahabaData.find((s) => s.id === params.id);
+export default async function SahabiPage({ params }: PageProps) {
+	const { id } = await params; // ننتظر المعاملات
+	const sahabi = sahabaData.find((s) => s.id === id);
 
 	if (!sahabi) {
 		return (
-			<main className='min-h-screen bg-green-50 p-6 flex flex-col items-center'>
+			<main className='min-h-screen  bg-green-50 p-6 flex flex-col items-center'>
 				<p className='text-green-800'>لم يتم العثور على الصحابي.</p>
 				<Link
 					href='/Home/sahaba'
@@ -22,7 +23,7 @@ export default function SahabiPage({ params }: PageProps) {
 	}
 
 	return (
-		<main className='pt-28 min-h-screen dark:bg-gray-950 bg-green-50 p-2 md:p-6 flex flex-col items-center'>
+		<main className=' min-h-screen dark:bg-gray-950 bg-green-50 p-2 md:p-6 flex flex-col items-center'>
 			<div className='bg-white dark:bg-gray-800 p-2 md:p-6 rounded-2xl shadow-md max-w-6xl  w-full text-gray-900 dark:text-gray-100'>
 				<div className='flex items-center justify-between mb-6 flex-col'>
 					<h1 className='text-3xl font-bold text-green-700 dark:text-green-500 mb-2'>

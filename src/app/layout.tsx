@@ -103,7 +103,8 @@ export default function RootLayout({
 				<div className='sticky top-0  z-50'>
 					<Header />
 				</div>
-				{children}
+				<div className='pt-20'>{children}</div>
+
 				<Footer />
 				<BackToTopButton />
 			</body>
