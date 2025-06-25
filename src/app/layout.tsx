@@ -4,6 +4,7 @@ import './globals.css';
 import { Roboto } from 'next/font/google';
 import { Metadata } from 'next';
 import BackToTopButton from '../components/basic/BackToTopButton';
+import ParticlesComponent from '../components/basic/tsparticles';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '700' });
 
@@ -100,6 +101,7 @@ export default function RootLayout({
 
 			<body
 				className={`bg-gradient-to-r relative ${roboto.className} custom-scroll overflow-x-hidden bg-primary dark:bg-darkprimary`}>
+				<ParticlesComponent id='Particles' />
 				<div className='sticky top-0  z-50'>
 					<Header />
 				</div>

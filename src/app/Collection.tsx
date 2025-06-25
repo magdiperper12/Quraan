@@ -3,9 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Hero from './Home/Hero';
 import { SurahType } from '../types';
-import ParticlesComponent from '../components/basic/tsparticles';
 import SurahList from '../components/quraan/SurahList';
-import SahabaList from '../components/sahaba/SahabaList';
 
 function Collection() {
 	const [surahs, setSurahs] = useState<SurahType[]>([]); // تخزين السور
@@ -24,7 +22,6 @@ function Collection() {
 
 	return (
 		<main className='pt-32 pb-28 overflow-x-hidden'>
-			<ParticlesComponent id='Particles' />
 			<div className='my-16 mt-40'>
 				<Hero />
 			</div>

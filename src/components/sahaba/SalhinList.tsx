@@ -18,7 +18,6 @@ export default function SalhinList() {
 			<h2 className='text-3xl font-bold text-center mb-6 text-green-800 dark:text-green-500'>
 				صالحو الأمة
 			</h2>
-
 			{/* شريط البحث */}
 			<div className='mb-6 flex justify-center'>
 				<input

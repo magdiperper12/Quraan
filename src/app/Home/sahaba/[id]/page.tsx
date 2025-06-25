@@ -23,8 +23,8 @@ export default async function SahabiPage({ params }: PageProps) {
 	}
 
 	return (
-		<main className=' min-h-screen dark:bg-gray-950 bg-green-50 p-2 md:p-6 flex flex-col items-center'>
-			<div className='bg-white dark:bg-gray-800 p-2 md:p-6 rounded-2xl shadow-md max-w-6xl  w-full text-gray-900 dark:text-gray-100'>
+		<main className=' min-h-screen  p-2 md:p-6 flex flex-col items-center'>
+			<div className='bg-gray-50 dark:bg-gray-900 p-2 md:p-6 rounded-2xl shadow-md max-w-6xl  w-full text-gray-900 dark:text-gray-100'>
 				<div className='flex items-center justify-between mb-6 flex-col'>
 					<h1 className='text-3xl font-bold text-green-700 dark:text-green-500 mb-2'>
 						{sahabi.personalInfo.fullName}
@@ -36,7 +36,7 @@ export default async function SahabiPage({ params }: PageProps) {
 
 				<div className=' grid grid-cols-1 lg:grid-cols-2 text-xl gap-5 gap-y-10 w-full mx-auto px-1 md:px-4  lg:px-8'>
 					{/* قسم المعلومات الشخصية */}
-					<section className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-4 md:p-6  sm:p-8'>
+					<section className='bg-white dark:bg-gray-950 rounded-lg shadow-lg p-4 md:p-6  sm:p-8'>
 						<h2 className='text-3xl font-bold mb-4 border-b-2 border-green-500 pb-2 text-green-800 dark:text-green-400'>
 							المعلومات الشخصية والتعريفية
 						</h2>
@@ -79,7 +79,7 @@ export default async function SahabiPage({ params }: PageProps) {
 					</section>
 
 					{/* قسم الإسلام والإيمان */}
-					<section className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 sm:p-8'>
+					<section className='bg-white dark:bg-gray-950 rounded-lg shadow-lg p-6 sm:p-8'>
 						<h2 className='text-3xl font-bold mb-4 border-b-2 border-green-500 pb-2 text-green-800 dark:text-green-400'>
 							الإسلام والإيمان
 						</h2>
@@ -122,7 +122,7 @@ export default async function SahabiPage({ params }: PageProps) {
 					</section>
 
 					{/* قسم الجانب العلمي */}
-					<section className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 sm:p-8'>
+					<section className='bg-white dark:bg-gray-950 rounded-lg shadow-lg p-6 sm:p-8'>
 						<h2 className='text-3xl font-bold mb-4 border-b-2 border-green-500 pb-2 text-green-800 dark:text-green-400'>
 							الجانب العلمي
 						</h2>
@@ -238,7 +238,7 @@ export default async function SahabiPage({ params }: PageProps) {
 					</section>
 
 					{/* قسم الجانب الجهادي والعملي */}
-					<section className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 sm:p-8'>
+					<section className='bg-white dark:bg-gray-950 rounded-lg shadow-lg p-6 sm:p-8'>
 						<h2 className='text-3xl font-bold mb-4 border-b-2 border-green-500 pb-2 text-green-800 dark:text-green-400'>
 							الجانب الجهادي والعملي
 						</h2>
@@ -295,7 +295,7 @@ export default async function SahabiPage({ params }: PageProps) {
 					</section>
 
 					{/* قسم الجانب الشخصي والاجتماعي */}
-					<section className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 sm:p-8'>
+					<section className='bg-white dark:bg-gray-950 rounded-lg shadow-lg p-6 sm:p-8'>
 						<h2 className='text-3xl font-bold mb-4 border-b-2 border-green-500 pb-2 text-green-800 dark:text-green-400'>
 							الجانب الشخصي والاجتماعي
 						</h2>
@@ -336,7 +336,7 @@ export default async function SahabiPage({ params }: PageProps) {
 					</section>
 
 					{/* قسم القصص والأحداث المؤثرة */}
-					<section className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 sm:p-8'>
+					<section className='bg-white dark:bg-gray-950 rounded-lg shadow-lg p-6 sm:p-8'>
 						<h2 className='text-3xl font-bold mb-4 border-b-2 border-green-500 pb-2 text-green-800 dark:text-green-400'>
 							القصص والأحداث المؤثرة
 						</h2>
@@ -381,7 +381,7 @@ export default async function SahabiPage({ params }: PageProps) {
 					</section>
 
 					{/* قسم الرتبة والمكانة */}
-					<section className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 sm:p-8'>
+					<section className='bg-white dark:bg-gray-950 rounded-lg shadow-lg p-6 sm:p-8'>
 						<h2 className='text-3xl font-bold mb-4 border-b-2 border-green-500 pb-2 text-green-800 dark:text-green-400'>
 							الرتبة والمكانة
 						</h2>
