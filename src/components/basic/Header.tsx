@@ -104,7 +104,9 @@ const Header = () => {
 								<Link
 									className='hover:text-third transition focus:text-yellow-500 text-2xl font-bold'
 									href={link.href}>
-									{link.name}
+									<button onClick={() => setIsOpen(!isOpen)}>
+										{link.name}
+									</button>
 								</Link>
 							</motion.div>
 						))}

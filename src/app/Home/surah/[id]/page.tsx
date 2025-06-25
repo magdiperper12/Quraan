@@ -49,8 +49,8 @@ export default function SurahPage({ params }: PageProps) {
 			initial={{ opacity: 0, y: 30 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className='container mx-auto pt-20 p-4 min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100'>
-			<h1 className='text-3xl font-bold mb-6 text-center sm:text-left'>
+			className='container  mx-auto pt-20 p-4 min-h-screen  text-gray-900 dark:text-gray-100'>
+			<h1 className='text-3xl flex justify-center items-center  font-bold mb-6 '>
 				{surah.name} - {surah.englishName}
 			</h1>
 			<AyahList ayahs={surah.ayahs} />

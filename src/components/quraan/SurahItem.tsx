@@ -10,7 +10,7 @@ const SurahItem = ({ surah }: Props) => (
 		<div
 			className='
         block border relative border-gray-300 dark:border-gray-700 p-3 rounded shadow-sm
-        text-center
+        text-start md:text-center 
         bg-white dark:bg-gray-800
         text-gray-900 dark:text-gray-100
         hover:bg-gray-100 dark:hover:bg-gray-700

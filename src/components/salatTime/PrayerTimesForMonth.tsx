@@ -91,7 +91,7 @@ export default function PrayerTimesForMonth({
 				</span>
 			</h2>
 
-			<div className='grid grid-cols-3 gap-4 '>
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 '>
 				{days.map((d, i) => (
 					<motion.div
 						key={i}
@@ -114,7 +114,7 @@ export default function PrayerTimesForMonth({
 									<span
 										key={key}
 										className='flex flex-col items-center col-span-1 '>
-										{arabicNames[key]}:{' '}
+										{arabicNames[key]}{' '}
 										<span className='font-medium'>
 											{convertTo12Hour(value)}
 										</span>

@@ -40,7 +40,7 @@ const AyahList = ({ ayahs }: Props) => {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: index * 0.1, duration: 0.4 }}
-					className={`p-4 border rounded-lg shadow-sm bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700 ${
+					className={`p-4 border rounded-xl shadow-sm bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-700 ${
 						index === currentIndex
 							? 'ring-2 ring-blue-500 dark:ring-blue-400 bg-blue-50 dark:bg-blue-900'
 							: ''
