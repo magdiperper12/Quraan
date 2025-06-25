@@ -74,3 +74,54 @@ export interface Video {
 export interface FilmsProps {
 	videos: Video[];
 }
+
+export interface salhin {
+	id: string;
+
+	personalInfo: {
+		fullName: string;
+		birthYearAndPlace: string;
+		deathYearAndPlace: string;
+		ageAtDeath: number;
+		physicalDescription: string;
+		tribeAndClan: string;
+	};
+
+	islamAndFaith: {
+		islamStory: string;
+		migrations: string[];
+		notableFaithMoments: string[];
+	};
+
+	knowledgeAndScholarship: {
+		hadiths: {
+			count: number;
+			famousHadiths: string[];
+			narratedBy: string[];
+			narratedTo: string[];
+		};
+		teachers: string[];
+		students: string[];
+		famousFatwas: string[];
+		contributions: string[];
+	};
+
+	jihadAndService: {
+		battles: string[];
+		administrativeRoles: string[];
+		roleInConquests: string[];
+		braveryTitles: string[];
+	};
+
+	personalAndSocialLife: {
+		family: string;
+		characterTraits: string[];
+		socialEvents: string[];
+	};
+
+	notableStories: {
+		withProphet: string[];
+		withCompanions: string[];
+		miracles: string[];
+	};
+}

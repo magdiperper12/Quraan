@@ -17,7 +17,7 @@ const Films: React.FC<FilmsProps> = ({ videos }) => {
 	const visibleVideos = filteredVideos.slice(0, visibleCount); // نأخذ أول عدد من الفيديوهات
 
 	return (
-		<div className='min-h-screen max-w-7xl m-auto pt-20 p-4'>
+		<div className='min-h-screen max-w-7xl m-auto p-4'>
 			<h1 className='text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white'>
 				فيديوهات من YouTube
 			</h1>

@@ -20,6 +20,7 @@ const Header = () => {
 		{ name: t('sahaba'), href: '/Home/sahaba' },
 		{ name: t('films'), href: '/Home/films' },
 		{ name: t('nashid'), href: '/Home/nashid' },
+		{ name: t('salehin'), href: '/Home/salehin' },
 	];
 	return (
 		<header className='backdrop-blur-lg dark:bg-black/10 bg-white/10  fixed   w-full pb-2   text-darkprimary  dark:text-white  shadow-lg'>

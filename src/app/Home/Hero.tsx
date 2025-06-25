@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next';
 const Hero = () => {
 	const { t } = useTranslation();
 	return (
-		<div className='  space-y-20 -mt-32     text-darkprimary dark:text-white px-6 '>
+		<div className='  space-y-20 -mt-52    text-darkprimary dark:text-white px-6 '>
 			<div>
 				<section className=' mx-auto text-center'>
 					<motion.h1
