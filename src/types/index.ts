@@ -7,6 +7,7 @@ export interface SurahType {
 }
 
 export interface AyahType {
+	numberInSurah: number;
 	number: number;
 	text: string;
 	audio: string;

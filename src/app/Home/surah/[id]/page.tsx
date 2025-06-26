@@ -1,45 +1,69 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import AyahList from '@/src/components/quraan/AyahList';
-import { SurahType } from '@/src/types';
+import AyahList, { Reciter } from '@/src/components/quraan/AyahList';
 import { motion } from 'framer-motion';
 
 interface PageProps {
-	params: Promise<{ id: string }>;
+	params: { id: string };
 }
 
 export default function SurahPage({ params }: PageProps) {
-	const { id } = React.use(params); // فك الـ Promise
-
-	const [surah, setSurah] = useState<SurahType | null>(null);
+	const { id } = params;
 	const [loading, setLoading] = useState(true);
+	const [reciters, setReciters] = useState<Reciter[]>([]);
 
 	useEffect(() => {
 		setLoading(true);
-		fetch(`https://api.alquran.cloud/v1/surah/${id}/ar.alafasy`, {
-			cache: 'no-store',
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				setSurah(data.data);
+
+		// قرّاء متعددون
+		const recitersData = [
+			{ id: 'ar.alafasy', name: 'الشيخ العفاسي', image: '/images/alafasy.png' },
+			{
+				id: 'ar.abdulsamad',
+				name: 'الشيخ عبدالباسط عبدالصمد',
+				image: '/images/abdulsamad.png',
+			},
+		];
+
+		// نجلب نصوص وأصوات السورة من API لكل قارئ
+		Promise.all(
+			recitersData.map(async (r) => {
+				const res = await fetch(
+					`https://api.alquran.cloud/v1/surah/${id}/${r.id}`,
+					{
+						cache: 'no-store',
+					}
+				);
+				const data = await res.json();
+
+				return {
+					id: r.id,
+					name: r.name,
+					image: r.image,
+					ayahs: data.data.ayahs.map((ayah: any) => ({
+						number: ayah.number,
+						numberInSurah: ayah.numberInSurah,
+						text: ayah.text,
+						audio: ayah.audio,
+					})),
+				};
+			})
+		)
+			.then((recitersArray) => {
+				setReciters(recitersArray);
 				setLoading(false);
 			})
-			.catch(() => setLoading(false));
+			.catch((e) => {
+				console.error('Error:', e);
+				setLoading(false);
+			});
 	}, [id]);
 
 	if (loading) {
 		return (
-			<div className='flex justify-center items-center min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100'>
+			<div className='flex justify-center items-center min-h-screen bg-white dark:bg-gray-900'>
 				<p className='text-lg'>جاري تحميل السورة ...</p>
-			</div>
-		);
-	}
-
-	if (!surah) {
-		return (
-			<div className='flex justify-center items-center min-h-screen bg-white dark:bg-gray-900 text-red-500'>
-				<p>حدث خطأ أثناء تحميل السورة.</p>
 			</div>
 		);
 	}
@@ -49,11 +73,11 @@ export default function SurahPage({ params }: PageProps) {
 			initial={{ opacity: 0, y: 30 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className='container  mx-auto pt-20 p-4 min-h-screen  text-gray-900 dark:text-gray-100'>
-			<h1 className='text-3xl flex justify-center items-center  font-bold mb-6 '>
-				{surah.name} - {surah.englishName}
+			className='container mx-auto pt-20 p-4 min-h-screen text-gray-900 dark:text-gray-100'>
+			<h1 className='text-3xl flex justify-center items-center font-bold mb-6'>
+				اسم السورة: {reciters[0]?.ayahs[0]?.text && id}
 			</h1>
-			<AyahList ayahs={surah.ayahs} />
+			<AyahList reciters={reciters} />
 		</motion.div>
 	);
 }

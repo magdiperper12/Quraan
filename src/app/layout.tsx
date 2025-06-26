@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 			'موقع غزوه يقدم لك تجربة فريدة لقراءة القرآن الكريم والاستماع إلى التلاوات والتفاسير مع سهولة التصفح ودقة المحتوى.',
 		type: 'website',
 		locale: 'ar_EG',
-		url: 'https://ghazwah.com/',
+		url: 'https://quraan-s6ns.vercel.app/',
 		images: [
 			{
 				url: '/image/quraan.jpg',

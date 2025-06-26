@@ -1,78 +1,121 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { AyahType } from '@/src/types';
-import { motion, AnimatePresence } from 'framer-motion';
 
-interface Props {
+export interface AyahType {
+	number: number;
+	numberInSurah?: number;
+	text: string;
+	audio: string;
+}
+
+export interface Reciter {
+	id: string;
+	name: string;
+	image: string;
 	ayahs: AyahType[];
 }
 
-const AyahList = ({ ayahs }: Props) => {
+// دالة لتحويل الرقم إلى أرقام عربية هندية
+function toArabicNumber(num: number) {
+	return num.toString().replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d, 10)]);
+}
+
+interface Props {
+	reciters: Reciter[];
+}
+
+const AyahList = ({ reciters }: Props) => {
+	const [currentReciterIndex, setCurrentReciterIndex] = useState(0);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const audioRef = useRef<HTMLAudioElement | null>(null);
 	const [loadingAudio, setLoadingAudio] = useState(true);
 
+	const currentReciter = reciters[currentReciterIndex];
+	const ayahs = currentReciter.ayahs;
+
 	useEffect(() => {
 		setLoadingAudio(true);
 		if (audioRef.current) {
-			audioRef.current.play().catch(() => {
-				/* التعامل مع أخطاء التشغيل تلقائي */
-			});
+			audioRef.current.play().catch(() => {});
 		}
-	}, [currentIndex]);
+	}, [currentIndex, currentReciterIndex]);
 
 	const handleEnded = () => {
 		if (currentIndex < ayahs.length - 1) {
 			setCurrentIndex(currentIndex + 1);
 		}
 	};
-
-	const handleCanPlay = () => {
-		setLoadingAudio(false);
-	};
+	const handleCanPlay = () => setLoadingAudio(false);
 
 	return (
-		<div className='space-y-6 px-2 sm:px-4 md:px-8 max-w-4xl mx-auto'>
-			{ayahs.map((ayah, index) => (
-				<motion.div
-					key={ayah.number}
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: index * 0.1, duration: 0.4 }}
-					className={`p-4 border rounded-xl shadow-sm bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-700 ${
-						index === currentIndex
-							? 'ring-2 ring-blue-500 dark:ring-blue-400 bg-blue-50 dark:bg-blue-900'
-							: ''
-					}`}>
-					<p
-						dir='rtl'
-						className='text-2xl leading-relaxed mb-4 font-scheherazade text-gray-900 dark:text-gray-100'>
-						{ayah.text}
-					</p>
+		<div className='max-w-4xl mx-auto p-4'>
+			{/* اختيار القارئ */}
+			<div className='flex items-center gap-4 mb-4'>
+				<img
+					src={currentReciter.image}
+					alt={currentReciter.name}
+					className='w-16 h-16 rounded-full border-2 border-blue-500 object-cover'
+				/>
+				<div className='flex-1'>
+					<label className='block mb-2 font-medium text-green-800 dark:text-green-400'>
+						اختر القارئ:
+					</label>
+					<select
+						className='w-full p-3 border border-green-500 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 transition'
+						value={currentReciterIndex}
+						onChange={(e) => {
+							setCurrentReciterIndex(Number(e.target.value));
+							setCurrentIndex(0); // العودة لأول آية عند تغيير القارئ
+						}}>
+						{reciters.map((rec, index) => (
+							<option
+								key={rec.id}
+								value={index}
+								className='bg-white dark:bg-gray-800'>
+								{rec.name}
+							</option>
+						))}
+					</select>
+				</div>
+			</div>
 
-					{index === currentIndex && (
-						<div>
-							{loadingAudio && (
-								<div className='mb-2 text-center text-gray-500 dark:text-gray-400'>
-									تحميل الصوت...
-								</div>
-							)}
+			{/* نصّ السورة */}
+			<div
+				dir='rtl'
+				className='text-2xl leading-relaxed font-scheherazade text-justify'>
+				{ayahs.map((ayah, index) => (
+					<span
+						key={ayah.number}
+						className={`inline-block ${
+							index === currentIndex
+								? 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-200 rounded px-1'
+								: ''
+						}`}>
+						{ayah.text}{' '}
+						<span className='mx-1 text-sm align-middle bg-white text-black w-8 h-8 p-1 rounded-full'>
+							﴿{toArabicNumber(ayah.numberInSurah || index + 1)}﴾
+						</span>
+					</span>
+				))}
+			</div>
 
-							<audio
-								ref={audioRef}
-								src={ayah.audio}
-								controls
-								className='w-full rounded-md outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200 dark:bg-gray-700'
-								onEnded={handleEnded}
-								onCanPlay={handleCanPlay}
-								autoPlay>
-								متصفحك لا يدعم تشغيل الصوت.
-							</audio>
-						</div>
-					)}
-				</motion.div>
-			))}
+			{/* تحميل الصوت */}
+			{loadingAudio && (
+				<div className='my-2 text-center text-gray-500 dark:text-gray-400'>
+					تحميل الصوت...
+				</div>
+			)}
+
+			<audio
+				ref={audioRef}
+				src={ayahs[currentIndex]?.audio}
+				controls
+				className='mt-4 w-full rounded-md outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200 dark:bg-gray-700'
+				onEnded={handleEnded}
+				onCanPlay={handleCanPlay}
+				autoPlay
+			/>
 		</div>
 	);
 };

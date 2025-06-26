@@ -82,7 +82,7 @@ const Header = () => {
 						transition={{ duration: 0.3 }}
 						className='fixed z-50  w-full left-0 top-0 lg:hidden px-4 pt-4 pb-6 space-y-10 bg-secoundry dark:bg-darkprimary min-h-screen'>
 						<button
-							className='lg:hidden fixed right-4 top-4  p-2 text-darkprimary text-3xl dark:text-gray-100'
+							className='lg:hidden fixed left-4 top-4  p-2 text-darkprimary text-3xl dark:text-gray-100'
 							onClick={() => setIsOpen(!isOpen)}>
 							{isOpen ? (
 								<div>

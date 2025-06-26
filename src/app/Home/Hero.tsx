@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
+import RandomTahfeez from '@/src/components/RandomTahfeez';
 const Hero = () => {
 	const { t } = useTranslation();
 	return (
@@ -17,6 +18,10 @@ const Hero = () => {
 						transition={{ duration: 0.6 }}>
 						{t('welcome')}
 						<span className='text-darkthird'>{t('Ghazwa')}</span>
+						<div>
+							{' '}
+							<RandomTahfeez />
+						</div>
 					</motion.h1>
 				</section>
 			</div>
