@@ -51,7 +51,7 @@ const AyahList = ({ reciters }: Props) => {
 	return (
 		<div className='max-w-4xl mx-auto p-4'>
 			{/* اختيار القارئ */}
-			<div className='flex items-center gap-4 mb-4'>
+			<div className='flex items-center justify-center py-4 gap-4 mb-4'>
 				<img
 					src={currentReciter.image}
 					alt={currentReciter.name}
@@ -87,10 +87,8 @@ const AyahList = ({ reciters }: Props) => {
 				{ayahs.map((ayah, index) => (
 					<span
 						key={ayah.number}
-						className={`inline-block ${
-							index === currentIndex
-								? 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-200 rounded px-1'
-								: ''
+						className={` ${
+							index === currentIndex ? ' text-blue-700 dark:text-blue-400 ' : ''
 						}`}>
 						{ayah.text}{' '}
 						<span className='mx-1 text-sm align-middle bg-white text-black w-8 h-8 p-1 rounded-full'>

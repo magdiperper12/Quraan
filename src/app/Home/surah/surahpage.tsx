@@ -11,21 +11,22 @@ interface SurahClientProps {
 const SurahClient = ({ id }: SurahClientProps) => {
 	const [loading, setLoading] = useState(true);
 	const [reciters, setReciters] = useState<Reciter[]>([]);
+	const [surahName, setSurahName] = useState('');
 
 	useEffect(() => {
 		setLoading(true);
 
 		const recitersData = [
-			{ id: 'ar.alafasy', name: 'الشيخ العفاسي', image: '/images/alafasy.png' },
+			{ id: 'ar.alafasy', name: 'الشيخ العفاسي', image: '/image/affasy.jpeg' },
 			{
 				id: 'ar.abdulsamad',
 				name: 'الشيخ عبدالباسط عبدالصمد',
-				image: '/images/abdulsamad.png',
+				image: '/image/abdelbaset.jpg',
 			},
 		];
 
 		Promise.all(
-			recitersData.map(async (r) => {
+			recitersData.map(async (r, index) => {
 				const res = await fetch(
 					`https://api.alquran.cloud/v1/surah/${id}/${r.id}`,
 					{
@@ -33,6 +34,11 @@ const SurahClient = ({ id }: SurahClientProps) => {
 					}
 				);
 				const data = await res.json();
+
+				// 👇 نخزن اسم السورة من أول قارئ فقط
+				if (index === 0) {
+					setSurahName(data.data.name); // "الفاتحة" مثلاً
+				}
 
 				return {
 					id: r.id,
@@ -47,6 +53,7 @@ const SurahClient = ({ id }: SurahClientProps) => {
 				};
 			})
 		)
+
 			.then((recitersArray) => {
 				setReciters(recitersArray);
 				setLoading(false);
@@ -71,9 +78,10 @@ const SurahClient = ({ id }: SurahClientProps) => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
 			className='container mx-auto pt-20 p-4 min-h-screen text-gray-900 dark:text-gray-100'>
-			<h1 className='text-3xl flex justify-center items-center font-bold mb-6'>
-				اسم السورة: {reciters[0]?.ayahs[0]?.text && id}
+			<h1 className='text-3xl flex justify-center items-center font-bold '>
+				{surahName}
 			</h1>
+
 			<AyahList reciters={reciters} />
 		</motion.div>
 	);
