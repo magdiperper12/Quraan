@@ -19,7 +19,7 @@ const Header = () => {
 		{ name: t('Salat'), href: '/Home/salat' },
 		{ name: t('sahaba'), href: '/Home/sahaba' },
 		{ name: t('films'), href: '/Home/films' },
-		{ name: t('nashid'), href: '/Home/nashid' },
+		{ name: t('zakaa'), href: '/Home/zakaa' },
 		{ name: t('salehin'), href: '/Home/salehin' },
 	];
 	return (

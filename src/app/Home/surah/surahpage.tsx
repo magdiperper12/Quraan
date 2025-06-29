@@ -77,7 +77,7 @@ const SurahClient = ({ id }: SurahClientProps) => {
 			initial={{ opacity: 0, y: 30 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className='container mx-auto pt-20 p-4 min-h-screen text-gray-900 dark:text-gray-100'>
+			className='container mx-auto pt-20 p-4 min-h-screen text-gray-900 dark:text-gray-100 dark:bg-black/50 bg-white/50 '>
 			<h1 className='text-3xl flex justify-center items-center font-bold '>
 				{surahName}
 			</h1>

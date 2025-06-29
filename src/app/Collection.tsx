@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Hero from './Home/Hero';
 import { SurahType } from '../types';
 import SurahList from '../components/quraan/SurahList';
+import TV from '../components/TV';
 
 function Collection() {
 	const [surahs, setSurahs] = useState<SurahType[]>([]); // تخزين السور
@@ -21,9 +22,14 @@ function Collection() {
 	}, []); // تُنفّذ مرة واحدة عند أول تحميل
 
 	return (
-		<main className='pt-32 pb-28 overflow-x-hidden'>
-			<div className='my-16 mt-40'>
-				<Hero />
+		<main className=' pb-28 overflow-x-hidden'>
+			<div className='lg:h-[50vh] xl:h-[70vh] w-11/12 flex flex-col xl:flex-row  justify-center items-center gap-8 '>
+				<div className=' w-full xl:w-2/3'>
+					<Hero />
+				</div>
+				<div className='w-full xl:w-1/3 '>
+					<TV />
+				</div>
 			</div>
 
 			<h1 className='text-4xl font-bold text-center m-8 text-black dark:text-white '>
