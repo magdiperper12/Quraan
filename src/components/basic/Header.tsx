@@ -17,6 +17,7 @@ const Header = () => {
 	const navLinks = [
 		{ name: t('home'), href: '/' },
 		{ name: t('Salat'), href: '/Home/salat' },
+		{ name: t('Tasmee'), href: '/Home/tasmee' },
 		{ name: t('sahaba'), href: '/Home/sahaba' },
 		{ name: t('films'), href: '/Home/films' },
 		{ name: t('zakaa'), href: '/Home/zakaa' },
