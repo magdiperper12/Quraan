@@ -41,7 +41,7 @@ const SurahHeader = ({
 			</h1>
 			{started && (
 				<div className='w-full mb-8'>
-					<div className='relative h-5 rounded-full bg-gray-300 dark:bg-gray-700 overflow-hidden shadow-inner'>
+					<div className='relative h-6 rounded-full bg-gray-300 dark:bg-gray-700 overflow-hidden shadow-inner'>
 						<div
 							className='absolute top-0 left-0 h-5 bg-gradient-to-r from-green-400 via-green-600 to-green-700 transition-all duration-700 ease-in-out'
 							style={{ width: `${progressPercent}%` }}
